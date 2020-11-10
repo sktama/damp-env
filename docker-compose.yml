@@ -1,0 +1,32 @@
+# Compose fileのバージョン指定
+version: '3'
+# どんなコンテナを立ち上げるか
+services:
+  # laravelを動かすコンテナ
+  app:
+    # どのポートを開いて繋ぐか。下記はコンテナの80番ポートを開いて、ホストの8000番につなぐ
+    ports:
+      - "8000:80"
+    # Dockerfileを使って、コンテナをビルドするという指定
+    build: ./docker
+    # コンテナの名前を指定
+    container_name: laravel
+    # コンテナとホスト側のディレクトリを同期する場所の指定。(laravelのソースが入る予定の場所)
+    volumes:
+      - ./src:/var/www/html
+    depends_on:
+        - mysql
+  # MySQLを動かすコンテナ
+  mysql:
+    # Docker HubからMySQL5.7の公式イメージをダウンロードしてくる指定
+    image: mysql:5.7
+    # container_name: mysql
+    # コンテナ内の環境変数を指定。環境変数を渡すとビルド時に設定してくれるDockerイメージがあるので、利用の際はDocker Hubのサイトで確認すると良い
+    environment:
+      MYSQL_DATABASE: laravel_db
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_USER: laravel_user
+      MYSQL_PASSWORD: password
+      TZ: 'Asia/Tokyo'
+    ports:
+      - 4306:3306
