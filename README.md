@@ -33,12 +33,12 @@ $ docker exec -it laravel bash
 <!-- composer create-project "laravel/laravel=~6.0" --prefer-dist laravelapp -->
 
 ## .envファイル修正
-DB_CONNECTION=mysql
-DB_HOST=mysql
-DB_PORT=3306
-DB_DATABASE=laravel_db
-DB_USERNAME=laravel_user
-DB_PASSWORD=password
+DB_CONNECTION=mysql  
+DB_HOST=mysql  
+DB_PORT=3306  
+DB_DATABASE=laravel_db  
+DB_USERNAME=laravel_user  
+DB_PASSWORD=password  
 
 ## migrateの実行
 ```
