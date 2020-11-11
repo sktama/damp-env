@@ -51,14 +51,6 @@ DB_PASSWORD=password
 $ php artisan key:generate
 ```
 
-## .envファイル修正
-DB_CONNECTION=mysql  
-DB_HOST=mysql  
-DB_PORT=3306  
-DB_DATABASE=laravel_db  
-DB_USERNAME=laravel_user  
-DB_PASSWORD=password  
-
 ## migrateの実行
 ```
 $ docker exec -it laravel_app bash
