@@ -30,7 +30,26 @@ $ docker-compose stop
 ```
 $ docker exec -it laravel bash
 ```
-<!-- composer create-project "laravel/laravel=~6.0" --prefer-dist laravelapp -->
+
+## clone時のみ
+### 1. composerインストール
+```
+$ composer install
+```
+### 2. .envファイル修正
+```
+$ cp .env.example .env
+```
+DB_CONNECTION=mysql  
+DB_HOST=mysql  
+DB_PORT=3306  
+DB_DATABASE=laravel_db  
+DB_USERNAME=laravel_user  
+DB_PASSWORD=password  
+### 3. APP_KEYの生成
+```
+$ php artisan key:generate
+```
 
 ## .envファイル修正
 DB_CONNECTION=mysql  
